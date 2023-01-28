@@ -1,7 +1,8 @@
-import { Button, Card, Container, Form } from "react-bootstrap";
-import Calendario from "../../components/Calendario";
-import Selecao from "../../components/Selecao";
+import { Container } from "react-bootstrap";
 import Titulo from "../../components/Titulo";
+import Card1 from "./components/card_1";
+import Card2 from "./components/card_2";
+import Card3 from "./components/card_3";
 
 
 const GDC = () => {
@@ -9,64 +10,11 @@ const GDC = () => {
 
         <Container>
 
-            <Titulo/> 
+            <Titulo titulo={'Relatórios Gestão do Cuidado'} /> 
 
-            <Card className="mb-4 shadow-sm">
-                <Card.Header><span className="fs-6 fw-bolder">Consulta Unidade por Dia e Turno</span></Card.Header>
-
-                <Card.Body>
-                    <Form>
-                        
-                        <Calendario titulo={'Dia'}/>
-                        <Selecao nome={'Unidade'}/>
-                        <Selecao nome={'Turno'}/>
-
-                        <Button style={{width:'100%'}} type="submit">
-                            <span className="fs-6 fw-bolder">Ok</span>
-                        </Button>
-
-                    </Form>
-                </Card.Body>
-            </Card>
-
-            <Card className="mb-4 shadow-sm">
-                <Card.Header><span className="fs-6 fw-bolder">Consulta Unidade por Dia e Turno</span></Card.Header>
-
-                <Card.Body>
-                    <Form>
-                        
-                        <Calendario titulo={'Semana'}/>
-                        <Selecao nome={'Unidade'}/>
-                        <Selecao nome={'Turno'}/>
-
-                        <Button style={{width:'100%'}} type="submit">
-                            <span className="fs-6 fw-bolder">Ok</span>
-                        </Button>
-
-                    </Form>
-                </Card.Body>
-            </Card>
-
-            <Card className="mb-4 shadow-sm">
-                <Card.Header><span className="fs-6 fw-bolder">Consulta Unidade por Dia e Turno</span></Card.Header>
-
-                <Card.Body>
-                    <Form>
-                        
-                        <Calendario titulo={'Mês'} dia ano/>
-                        <Selecao nome={'Unidade'}/>
-                        <Selecao nome={'Turno'}/>
-
-                        <Button style={{width:'100%'}} type="submit">
-                            <span className="fs-6 fw-bolder">Ok</span>
-                        </Button>
-
-                    </Form>
-                </Card.Body>
-            </Card>
-
-            
-
+            <Card1/>
+            <Card2/>
+            <Card3/>
 
         </Container>
 

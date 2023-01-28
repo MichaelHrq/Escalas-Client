@@ -4,7 +4,7 @@ import Ano from "./components/Ano";
 import Dia from "./components/Dia";
 import Mes from "./components/Mes";
 
-const Calendario = ({ titulo, dia, mes, ano }) => {
+const Calendario = ({ titulo, dia, mes, ano, setDia, setMes, setAno }) => {
 
   return (
 
@@ -14,11 +14,11 @@ const Calendario = ({ titulo, dia, mes, ano }) => {
 
       <Row className="m-0">
 
-        { !dia && <Col className="p-0 me-2" xs="auto"> <Dia/> </Col> }
+        { !dia && <Col className="p-0 me-2" xs="auto"> <Dia setDia={setDia} /> </Col> }
 
-        { !mes && <Col className="p-0 me-2" xs="auto"> <Mes/> </Col> }
+        { !mes && <Col className="p-0 me-2" xs="auto"> <Mes setMes={setMes} /> </Col> }
 
-        { !ano && <Col className="p-0 me-2" xs="auto"> <Ano/> </Col> }
+        { !ano && <Col className="p-0 me-2" xs="auto"> <Ano setAno={setAno} /> </Col> }
 
       </Row>
 

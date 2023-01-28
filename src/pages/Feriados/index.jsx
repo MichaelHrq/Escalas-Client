@@ -11,7 +11,7 @@ const Feriados = () => {
             <Table responsive="sm" >
                 <thead>
                     <tr>
-                        <th>Discrição</th>
+                        <th>Descrição</th>
                         <th>Data</th>
                         <th>Tipo</th>
                         <th>Repete Anualmente</th>

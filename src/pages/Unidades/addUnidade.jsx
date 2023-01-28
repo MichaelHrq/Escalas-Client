@@ -15,8 +15,6 @@ const UnidAdicionar = () => {
     const [tecdia,setTecdia] = useState()
     const [tecnoite,setTecnoite] = useState()
 
-    console.log(nome, enfmes, enfdia, enfnoite, tecmes, tecdia, tecnoite)
-
     return ( 
         <Container>
 

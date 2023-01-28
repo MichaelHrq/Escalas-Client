@@ -5,10 +5,6 @@ import FrequenciaTitulo from './FrequenciaTitulo';
 
 const Titulo = ({titulo, botao, path, frequencia, relatorio}) => {
 
-    console.log(botao)
-    console.log(frequencia)
-    console.log(relatorio)
-
     return ( 
 
         <div className="h1 mt-5 mb-4 ">

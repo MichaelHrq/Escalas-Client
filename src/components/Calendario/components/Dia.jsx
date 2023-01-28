@@ -1,14 +1,21 @@
 import { Form } from 'react-bootstrap'
 
-const Dia = () => {
+const Dia = ({setDia}) => {
 
     const data = new Date()
 
     const dias = Array.from({length:31}, (_,i) => i + 1);
 
+    const handleOnChange = (item) => {
+      setDia(item.target.value);
+    };
+
     return (
 
-    <Form.Select aria-label="Default select example">
+    <Form.Select 
+      aria-label="Default select example"
+      onChange={item => handleOnChange(item)}
+      >
 
         {dias.map((dia) => {
           return (

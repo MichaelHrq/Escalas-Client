@@ -15,9 +15,6 @@ const AddProfissional = () => {
     const [conselho,setConselho] = useState()
     const [categoria,setCategoria] = useState()
     const [valeTransporte,setValeTransporte] = useState()
-    
-
-    console.log(checkbox)
 
     return ( 
         <Container>
