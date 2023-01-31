@@ -7,7 +7,10 @@ const Card3 = () => {
 
   const [unidade, setUnidade] = useState();
   const [turno, setTurno] = useState();
-  const [mes, setMes] = useState();
+
+  const data = new Date()
+  const [mes, setMes] = useState(data.getMonth()+1)
+
 
   const lista = {unidade,turno,mes}
 

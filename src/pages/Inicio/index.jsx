@@ -1,37 +1,55 @@
 import Container from "react-bootstrap/esm/Container";
 import Titulo from "../../components/Titulo";
-import Form from 'react-bootstrap/Form';
-import Selecao from '../../components/Selecao';
+import Calendario from "../../components/Calendario";
+import Form from "react-bootstrap/Form";
+import Selecao from "../../components/Selecao";
 import { useState } from "react";
-import Botao from "../../components/Botao";
-
+import { Button } from "react-bootstrap";
 
 const Inicio = () => {
+  const [unidade, setUnidade] = useState("");
+  const [profissional, setProfissional] = useState("");
+  const [turno, setTurno] = useState("");
 
-    const [mes, setMes] = useState('')
-    const [unidade, setUnidade] = useState('')
-    const [profissional, setProfissional] = useState('')
-    const [turno, setTurno] = useState('')
+  const data = new Date();
+  const [mes, setMes] = useState(data.getMonth() + 1);
 
-    return ( 
+  const [lista, setLista] = useState([]);
 
-            <Container>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
-                <Titulo titulo={'Consultar Pontos / Escalas'}/>
+    setLista([...lista, { mes, unidade, profissional, turno }]);
+  };
 
-                <Form>
-                    <Selecao nome={'Mês'} change={value => setMes(value)} />
-                    <Selecao nome={'Unidade'} change={value => setUnidade(value)} />
-                    <Selecao nome={'Tipo de Profissional'} change={value => setProfissional(value)} />
-                    <Selecao nome={'Turno'} change={value => setTurno(value)} />
-                </Form>
+  return (
+    <Container>
+      <Titulo titulo={"Consultar Pontos / Escalas"} />
 
-                <p>{mes}{unidade}{profissional}{turno}</p>
+      <Form onSubmit={handleSubmit}>
+        <Calendario dia ano setMes={setMes} titulo={"Mês"} />
+        <Selecao nome={"Unidade"} change={(value) => setUnidade(value)} />
+        <Selecao
+          nome={"Tipo de Profissional"}
+          change={(value) => setProfissional(value)}
+        />
+        <Selecao nome={"Turno"} change={(value) => setTurno(value)} />
 
-                <Botao text={'Mostrar'}/>
+        <Button type="submit">
+          <span className="fs-6 fw-bolder">Enviar</span>
+        </Button>
+      </Form>
 
-            </Container>
-     );
-}
- 
+      {lista.map((item) => {
+        return (
+          <span key={item.mes}>
+            {item.mes + item.unidade + item.profissional + item.turno}
+          </span>
+        );
+      })}
+    </Container>
+  );
+};
+
 export default Inicio;

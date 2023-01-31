@@ -23,6 +23,7 @@ const Selecao = ({nome, change}) => {
         <Form.Select
         aria-label="Default select example"
         onChange={item => Selecionado(item)}
+        required
         >
           <option disabled selected></option>
           {opcoes.map( opcao => {

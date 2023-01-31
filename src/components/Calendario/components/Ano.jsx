@@ -1,6 +1,6 @@
 import { Form } from "react-bootstrap";
 
-const Ano = ({setAno}) => {
+const Ano = ({ setAno }) => {
   const data = new Date();
 
   function listar_anos() {
@@ -31,10 +31,11 @@ const Ano = ({setAno}) => {
   };
 
   return (
-    <Form.Select 
+    <Form.Select
       aria-label="Default select example"
-      onChange={item => handleOnChange(item)}
-      >
+      onChange={(item) => handleOnChange(item)}
+      required
+    >
       {listar_anos().map((ano) => {
         return (
           <option

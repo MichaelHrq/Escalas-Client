@@ -12,8 +12,10 @@ const Relatorio = () => {
     const [turno,setTurno] = useState()
     const [unidade,setUnidade] = useState()
     const [funcao,setFuncao] = useState()
-    const [mes,setMes] = useState()
-    const [ano,setAno] = useState()
+
+    const data = new Date()
+    const [mes, setMes] = useState(data.getMonth()+1)
+    const [ano, setAno] = useState(data.getFullYear())
 
     return ( 
 

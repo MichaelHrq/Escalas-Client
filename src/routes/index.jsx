@@ -15,8 +15,13 @@ import Relatorio from "../pages/Frequencia/Relatorio";
 import AddFeriado from "../pages/Feriados/AddFeriado";
 import Diaria from "../pages/Frequencia/Diaria";
 import GDC from "../pages/GDC";
+import { useState } from "react";
 
 const AppRoute = () => {
+
+    const[feriado,setFeriado] = useState([])
+    const[unidade,setUnidade] = useState([])
+    const[profissional,setProfissional] = useState([])
 
     return ( 
 
@@ -28,15 +33,15 @@ const AppRoute = () => {
                 <Route path="/" element={<Inicio/>} />
                 <Route path="inicio" element={<Inicio/>} />
 
-                <Route path="unidade" element={<Unidade/>} />
-                <Route path="unidade/adicionar" element={<UnidAdicionar/>} />
+                <Route path="unidade" element={<Unidade unidade={unidade}/>} />
+                <Route path="unidade/adicionar" element={<UnidAdicionar setUnidade={setUnidade} unidade={unidade} />} />
 
                 <Route path="setores" element={<Setores/>} />
 
                 <Route path="usuarios" element={<Usuario/>} />
 
-                <Route path="feriados" element={<Feriados/>} />
-                <Route path="feriados/adicionar" element={<AddFeriado/>} />
+                <Route path="feriados" element={<Feriados feriado={feriado} />} />
+                <Route path="feriados/adicionar" element={<AddFeriado setFeriado={setFeriado} feriado={feriado}/>} />
 
                 <Route path="escalas" element={<Escalas/>} />
 

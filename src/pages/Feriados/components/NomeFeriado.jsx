@@ -1,10 +1,10 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-const NomeFeriados = ({setFeriado}) => {
+const NomeFeriados = ({setNome}) => {
 
     const handleOnChange = (e) => {
-        setFeriado(e.target.value)
+        setNome(e.target.value)
     }
 
     return (

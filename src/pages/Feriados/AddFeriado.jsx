@@ -1,54 +1,60 @@
 import { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import Calendario from "../../components/Calendario";
 import Checkbox from "../../components/Checkbox";
 import Titulo from "../../components/Titulo";
 import NomeFeriados from "./components/NomeFeriado";
 import TipoFeriados from "./components/TiposFeriados";
 
+const AddFeriado = ({ setFeriado, feriado }) => {
+  const [nome, setNome] = useState();
+  const [tipoFeriado, setTipoFeriado] = useState();
+  const [repeteAno, setRepeteAno] = useState(false);
 
-const AddFeriado = () => {
+  const data = new Date();
+  const [dia, setDia] = useState(data.getUTCDate());
+  const [mes, setMes] = useState(data.getMonth() + 1);
+  const [ano, setAno] = useState(data.getFullYear());
 
-    const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault()
-            event.stopPropagation()
-        }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
-        setValidated(true);
-    };
+    const data = "".concat(dia, "/", mes, "/", ano);
+    const submit = { nome, tipoFeriado, data, repeteAno };
+    console.log(submit);
+    setFeriado([...feriado, submit]);
+    navigate("/feriados");
+  };
 
-    const [feriado,setFeriado] = useState()
-    const [tipoFeriado,setTipoFeriado] = useState()
-    const [dia,setDia] = useState()
-    const [mes,setMes] = useState()
-    const [ano,setAno] = useState()
-    const [checkbox,setCheckbox] = useState(false)
+  return (
+    <Container>
+      <Titulo titulo={"Adicionar Feriado"} />
 
-    return ( 
+      <Form onSubmit={handleSubmit}>
+        <NomeFeriados setNome={setNome} />
+        <Calendario
+          titulo="Data"
+          setDia={setDia}
+          setMes={setMes}
+          setAno={setAno}
+        />
+        <TipoFeriados setTipoFeriado={setTipoFeriado} />
+        <Checkbox
+          label={"Repetir Anualmente"}
+          change={setRepeteAno}
+          checkbox={repeteAno}
+        />
 
-        <Container>
+        <Button style={{ width: "100%" }} type="submit">
+          <span className="fs-6 fw-bolder">Enviar</span>
+        </Button>
+      </Form>
+    </Container>
+  );
+};
 
-            <Titulo titulo={'Adicionar Feriado'} />
-
-            <Form noValidate validated={validated} onSubmit={handleSubmit}>
-
-                <NomeFeriados setFeriado={setFeriado} />
-                <Calendario titulo='Data' setDia={setDia} setMes={setMes} setAno={setAno} />
-                <TipoFeriados setTipoFeriado={setTipoFeriado} />
-                <Checkbox label={'Repetir Anualmente'} setCheckbox={setCheckbox} checkbox={checkbox} />
-                
-                <Button style={{width:'100%'}} type="submit">
-                    <span className="fs-6 fw-bolder">Enviar</span>
-                </Button>
-            </Form>
-
-        </Container>
-
-     );
-}
- 
 export default AddFeriado;

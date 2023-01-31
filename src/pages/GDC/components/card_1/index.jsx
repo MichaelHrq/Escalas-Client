@@ -4,19 +4,20 @@ import Calendario from "../../../../components/Calendario";
 import Selecao from "../../../../components/Selecao";
 
 const Card1 = () => {
-
   const [unidade, setUnidade] = useState();
   const [turno, setTurno] = useState();
-  const [dia, setDia] = useState();
-  const [mes, setMes] = useState();
-  const [ano, setAno] = useState();
 
-  const lista = {unidade,turno,dia,mes,ano}
+  const data = new Date();
+  const [dia, setDia] = useState(data.getUTCDate());
+  const [mes, setMes] = useState(data.getMonth() + 1);
+  const [ano, setAno] = useState(data.getFullYear());
+
+  const lista = { unidade, turno, dia, mes, ano };
 
   const handleSubmit = (evento) => {
-    evento.preventDefault()
-    console.log(lista)
-  }
+    evento.preventDefault();
+    console.log(lista);
+  };
 
   return (
     <Card className="mb-4 shadow-sm">
@@ -35,11 +36,15 @@ const Card1 = () => {
           <Selecao nome={"Unidade"} change={setUnidade} />
           <Selecao nome={"Turno"} change={setTurno} />
 
-          <Button onClick={handleSubmit} style={{width:"100%"}} type="submit">
+          <Button
+            onClick={handleSubmit}
+            style={{ width: "100%" }}
+            type="submit"
+          >
             <span className="fs-6 fw-bolder">Ok</span>
           </Button>
         </Form>
-      </Card.Body> 
+      </Card.Body>
     </Card>
   );
 };

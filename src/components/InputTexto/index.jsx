@@ -10,7 +10,7 @@ const InputTexto = ({descricao, type, change}) => {
 
             <Form.Group className="mb-4" controlId="formBasicEmail">
                 <Form.Label className='fw-bolder fs-6'>{descricao}</Form.Label>
-                <Form.Control onChange={handleOnChange} type={type}/>
+                <Form.Control required onChange={handleOnChange} type={type}/>
             </Form.Group>
 
      );

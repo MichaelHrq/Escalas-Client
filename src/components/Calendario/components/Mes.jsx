@@ -1,7 +1,7 @@
 import { Form } from "react-bootstrap";
 
 const Mes = ({ setMes }) => {
-  const data = new Date()
+  const data = new Date();
 
   const mes = [
     "Janeiro",
@@ -19,14 +19,16 @@ const Mes = ({ setMes }) => {
   ]
 
   const handleOnChange = (item) => {
-    setMes(item.target.value);
-  }
+    const value = mes.indexOf(item.target.value)
+    setMes(value + 1);
+  };
 
   return (
-    <Form.Select 
+    <Form.Select
       aria-label="Default select example"
-      onChange={item => handleOnChange(item)}
-      >
+      onChange={(item) => handleOnChange(item)}
+      required
+    >
       {mes.map((mes) => {
         return (
           <option
@@ -35,10 +37,10 @@ const Mes = ({ setMes }) => {
             selected={mes === data.getMonth() ? "selected" : ""}
             label={mes}
           />
-        )
+        );
       })}
     </Form.Select>
-  )
-}
+  );
+};
 
 export default Mes;

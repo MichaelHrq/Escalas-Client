@@ -15,8 +15,8 @@ const Dia = ({setDia}) => {
     <Form.Select 
       aria-label="Default select example"
       onChange={item => handleOnChange(item)}
+      required
       >
-
         {dias.map((dia) => {
           return (
             <option

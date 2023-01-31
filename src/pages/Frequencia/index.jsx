@@ -9,9 +9,11 @@ const Frequencia = () => {
 
     const [unidade,setUnidade] = useState()
     const [turno,setTurno] = useState()
-    const [dia,setDia] = useState()
-    const [mes,setMes] = useState()
-    const [ano,setAno] = useState()
+
+    const data = new Date()
+    const [dia, setDia] = useState(data.getUTCDate())
+    const [mes, setMes] = useState(data.getMonth()+1)
+    const [ano, setAno] = useState(data.getFullYear())
 
     return ( 
 

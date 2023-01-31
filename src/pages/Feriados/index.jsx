@@ -3,7 +3,7 @@ import { Button, Container, Table } from "react-bootstrap";
 import Titulo from "../../components/Titulo";
 
 
-const Feriados = () => {
+const Feriados = ({feriado}) => {
 
     return (
         <Container>
@@ -20,13 +20,16 @@ const Feriados = () => {
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Aniversario de manaus</td>
-                        <td>09/09/9090</td>
-                        <td>Municipal</td>
-                        <td>sim</td>
-                        <td><Button variant="danger">Apagar</Button></td>
-                    </tr>
+                    {feriado.map( feriado => { return(
+                        <tr key={feriado.nome}>
+                            <td>{feriado.nome}</td>
+                            <td>{feriado.data}</td>
+                            <td>{feriado.tipoFeriado}</td>
+                            <td>{feriado.repeteAno === true ? 'Sim' : 'Não'}</td>
+                            <td><Button variant="danger">Apagar</Button></td>
+                        </tr>
+                        )
+                    })}
                 </tbody>
             </Table>
         </Container>

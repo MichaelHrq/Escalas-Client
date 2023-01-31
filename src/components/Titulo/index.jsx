@@ -3,7 +3,7 @@ import Botao from '../Botao';
 import FrequenciaRelatorio from './FrequenciaRelatorio';
 import FrequenciaTitulo from './FrequenciaTitulo';
 
-const Titulo = ({titulo, botao, path, frequencia, relatorio}) => {
+const Titulo = ({titulo, botao, path, frequencia, relatorio, setAdicionar}) => {
 
     return ( 
 
